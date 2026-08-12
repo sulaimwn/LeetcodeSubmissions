@@ -3,7 +3,7 @@ class Solution:
         l=0
         r=len(height)-1
 
-        possiblevalues=[]
+        maxArea=0
         while l<r:
             lv=height[l]
             rv=height[r]
@@ -12,7 +12,9 @@ class Solution:
 
             curh=min(lv,rv)
 
-            possiblevalues.append(width*curh)
+            curA=width*curh
+            maxArea = max(maxArea, curA)
+
 
             if lv<rv:
                 l+=1
@@ -21,4 +23,4 @@ class Solution:
             else:
                 l+=1
             
-        return max(possiblevalues)
+        return maxArea
